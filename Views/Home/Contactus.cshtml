@@ -1,5 +1,22 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
+@{ <a asp-controller="Home" asp-action="Index">Back</a>
+
+    <form asp-controller="Home" asp-action="Contactus" method="post">
+        Last Name
+        <input type="text" name="LastName"
+               class="form-control" value="LastName" />
+        <br />
+        First Name
+        <input type="text" name="FirstName"
+               class="form-control" value="Firstname" />
+        <br />
+        <button type="submit" class="btn btn-primary">
+            Add Student
+        </button>
+
+
+
+    </form>
 }
