@@ -1,22 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{ <a asp-controller="Home" asp-action="Index">Back</a>
-
-    <form asp-controller="Home" asp-action="Contactus" method="post">
-        Last Name
-        <input type="text" name="LastName"
-               class="form-control" value="LastName" />
-        <br />
-        First Name
-        <input type="text" name="FirstName"
-               class="form-control" value="Firstname" />
-        <br />
-        <button type="submit" class="btn btn-primary">
-            Add Student
-        </button>
-
-
-
-    </form>
+﻿@{
+    ViewData["Title"] = "Contact Us";
 }
+
+<div class="col-md-3  pl-4 pr-4">
+    <br />
+    <br />
+    <h1>Contact Us</h1>
+    <a href="#"><i class="fas fa-phone"></i> +(63) 91568597485 </a><br>
+    <a href="istore@gmail.com"><i class="fas fa-envelope"></i> istore@gmail.com </a><br>
+    <div class="embed-responsive embed-responsive-16by9">
+    </div>
+</div>
+
