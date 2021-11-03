@@ -32,6 +32,15 @@ namespace FinalProject
 
             services.AddDefaultIdentity<ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "";
+                    options.ClientSecret = "";
+                });
+                
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
