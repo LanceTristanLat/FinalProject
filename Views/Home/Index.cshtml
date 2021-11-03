@@ -4,12 +4,19 @@
 <div class="text-center">
     <br />
     <br />
-    <h1 class="display-1">IStore</h1>
-    <br />
+    <img src="images/icon2.png" alt="iStore"
+         class="align-content-center" 
+          />
     <h5> Your one stop phone accessories store.</h5>
     <br />
     <br />
 
-    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">New Customer</button>
-    <button class="btn btn-outline-dark  my-2 my-sm-0" type="submit">Old Customer</button>
+    <a asp-area="Identity" asp-action="Login" class="btn btn-outline-dark my-2 my-sm-0">
+        Register
+    </a>
+
+    <a asp-controller="Shared" asp-action="_LoginPartial" class="btn btn-outline-dark my-2 my-sm-0">
+        Login
+    </a>
+
 </div>
