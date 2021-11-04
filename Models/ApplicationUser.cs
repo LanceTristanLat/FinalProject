@@ -10,6 +10,14 @@ namespace FinalProject.Models
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public int AccountID { get; set; }
+        public UserTypes Type { get; set; }
+        
 
+    }
+    public enum UserTypes
+    {
+        Admin = 1,
+        Customer = 2,
     }
 }

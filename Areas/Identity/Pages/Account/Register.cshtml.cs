@@ -50,6 +50,21 @@ namespace FinalProject.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+            [Required]
+            [Display(Name ="First Name")]
+            public string FN { get; set; }
+
+            [Required]
+            [Display(Name ="Last Name")]
+            public string LN { get; set; }
+
+            [Required]
+            [StringLength(5,ErrorMessage ="Account ID must consist maximum of 5 characters.", MinimumLength = 4)]
+            [Display(Name ="Account ID")]
+            public string AN { get; set; }
+            [Required]
+            [Display(Name ="User Type")]
+            public UserTypes Type { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
