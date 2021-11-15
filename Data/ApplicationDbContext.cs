@@ -14,7 +14,7 @@ namespace FinalProject.Data
            : base(options)
         {
         }
-     
+        public DbSet<Item> Items { get; set; }
 
     }
 }
