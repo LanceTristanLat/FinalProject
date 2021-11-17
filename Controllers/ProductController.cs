@@ -32,7 +32,7 @@ namespace FinalProject.Controllers
         [HttpPost]
         public IActionResult Create(Item record)
         {
-            var selectedCategory = _context.Categories.Where(c => c.CatId == record.ProductID).SingleOrDefault();
+            var selectedCategory = _context.Items.Where(c => c.CatID == record.ProductID).SingleOrDefault();
             
             var product = new Item();
             product.ProductName = record.ProductName;
@@ -70,7 +70,7 @@ namespace FinalProject.Controllers
         {
             var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
 
-            var selectedCategory = _context.Categories.Where(c => c.CatId == record.CatId).SingleOrDefault();
+            var selectedCategory = _context.Items.Where(c => c.CatID == record.CatID).SingleOrDefault();
 
             product.ProductName = record.ProductName;
             product.ProductCode = record.ProductCode;

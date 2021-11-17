@@ -23,7 +23,7 @@ namespace FinalProject.Models
         [Display(Name ="Categories")]
         public Categories Categories { get; set; }
         
-        public int CatId { get; set; }
+        public int CatID { get; set; }
 
         public int Available { get; set; }
     }
