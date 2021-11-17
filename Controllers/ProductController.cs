@@ -21,7 +21,7 @@ namespace FinalProject.Controllers
         }
         public IActionResult Index()
         {
-            var list = _context.Products.Include(p => p.Category).ToString();
+            var list = _context.Items.Include(p => p.Categories).ToString();
             return View(list);
         }
 
@@ -30,22 +30,20 @@ namespace FinalProject.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Product record)
+        public IActionResult Create(Item record)
         {
-            var selectedCategory = _context.Categories.Where(c => c.CatId == record.CatId).SingleOrDefault();
+            var selectedCategory = _context.Categories.Where(c => c.CatId == record.ProductID).SingleOrDefault();
             
-            var product = new Product();
-            product.Name = record.Name;
-            product.Code = record.Code;
-            product.Description = record.Description;
-            product.Price = record.Price;
+            var product = new Item();
+            product.ProductName = record.ProductName;
+            product.ProductCode = record.ProductCode;
+            product.ProductDescription = record.ProductDescription;
+            product.ProductPrice = record.ProductPrice;
             product.Available = 0;
             product.DateAdded = DateTime.Now;
-            product.Status = "Active";
-            product.Category = selectedCategory;
-            product.CatId = record.CatId;
+            product.Categories = selectedCategory;
 
-            _context.Products.Add(product);
+            _context.Items.Add(product);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
@@ -58,7 +56,7 @@ namespace FinalProject.Controllers
                 return RedirectToAction("Index");
             }
             
-            var product = _context.Products.Where(p => p.ProductId == id).SingleOrDefault();
+            var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
             if (product == null)
             {
                 return RedirectToAction("Index");
@@ -68,24 +66,22 @@ namespace FinalProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int? id, Product record)
+        public IActionResult Edit(int? id, Item record)
         {
-            var product = _context.Products.Where(p => p.ProductId == id).SingleOrDefault();
+            var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
 
             var selectedCategory = _context.Categories.Where(c => c.CatId == record.CatId).SingleOrDefault();
 
-            var product = new Product();
-            product.Name = record.Name;
-            product.Code = record.Code;
-            product.Description = record.Description;
-            product.Price = record.Price;
+            product.ProductName = record.ProductName;
+            product.ProductCode = record.ProductCode;
+            product.ProductDescription = record.ProductDescription;
+            product.ProductPrice = record.ProductPrice;
             product.Available = 0;
             product.DateAdded = DateTime.Now;
-            product.Status = "Active";
-            product.Category = selectedCategory;
-            product.CatId = record.CatId;
+            product.Categories = selectedCategory;
 
-            _context.Products.Add(product);
+
+            _context.Items.Add(product);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
@@ -98,13 +94,13 @@ namespace FinalProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            var product = _context.Products.Where(p => p.ProductId == id).SingleOrDefault();
+            var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
             if (product == null)
             {
                 return RedirectToAction("Index");
             }
 
-            _context.Products.Remove(product);
+            _context.Items.Remove(product);
             _context.SaveChanges();
 
             return RedirectToAction("Index");

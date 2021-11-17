@@ -22,7 +22,10 @@ namespace FinalProject.Models
         public DateTime DateAdded { get; set; }
         [Display(Name ="Categories")]
         public Categories Categories { get; set; }
+        
+        public int CatId { get; set; }
 
+        public int Available { get; set; }
     }
     public enum Categories
     {
