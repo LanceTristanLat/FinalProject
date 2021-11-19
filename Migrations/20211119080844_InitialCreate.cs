@@ -7,6 +7,20 @@ namespace FinalProject.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "AccountID",
+                table: "AspNetUsers",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<int>(
+                name: "Type",
+                table: "AspNetUsers",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.CreateTable(
                 name: "Items",
                 columns: table => new
@@ -18,7 +32,9 @@ namespace FinalProject.Migrations
                     ProductDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Categories = table.Column<int>(type: "int", nullable: false)
+                    Categories = table.Column<int>(type: "int", nullable: false),
+                    CatId = table.Column<int>(type: "int", nullable: false),
+                    Available = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,6 +46,14 @@ namespace FinalProject.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Items");
+
+            migrationBuilder.DropColumn(
+                name: "AccountID",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "Type",
+                table: "AspNetUsers");
         }
     }
 }

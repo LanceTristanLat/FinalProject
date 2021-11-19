@@ -61,7 +61,7 @@ namespace FinalProject.Areas.Identity.Pages.Account
             [Required]
             [StringLength(5,ErrorMessage ="Account ID must consist maximum of 5 characters.", MinimumLength = 4)]
             [Display(Name ="Account ID")]
-            public string AN { get; set; }
+            public int AN { get; set; }
             [Required]
             [Display(Name ="User Type")]
             public UserTypes Type { get; set; }
@@ -90,7 +90,7 @@ namespace FinalProject.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Firstname = Input.FN, Lastname = Input.LN, EmailConfirmed =true, Type = Input.Type, AccountID = Input.AN, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

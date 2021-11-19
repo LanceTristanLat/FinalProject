@@ -103,6 +103,12 @@ namespace FinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Available")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CatId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Categories")
                         .HasColumnType("int");
 

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211115221106_InitialCreate")]
+    [Migration("20211119080844_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,6 +104,12 @@ namespace FinalProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Available")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CatId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Categories")
                         .HasColumnType("int");
