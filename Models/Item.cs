@@ -26,6 +26,11 @@ namespace FinalProject.Models
         public int CatID { get; set; }
 
         public int Available { get; set; }
+
+        public static implicit operator Categories(Item v)
+        {
+            throw new NotImplementedException();
+        }
     }
     public enum Categories
     {
