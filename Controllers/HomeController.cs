@@ -10,6 +10,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+using System.Net;
+using System.Net.Mail;
+
+
 namespace FinalProject.Controllers
 { 
     public class HomeController : Controller
@@ -41,6 +45,16 @@ namespace FinalProject.Controllers
 
         public IActionResult ContactUs()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ContactUs(Contact record)
+        {
+            MailMessage mail = new MailMessage()
+            {
+                From = new MailAddress("")
+            };
             return View();
         }
 
