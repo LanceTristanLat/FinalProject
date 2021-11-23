@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Products\**" />
+    <Content Remove="Views\Products\**" />
+    <EmbeddedResource Remove="Views\Products\**" />
+    <None Remove="Views\Products\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="5.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.12" />
@@ -21,11 +28,6 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.12" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration" Version="5.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Products\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
 
 </Project>
