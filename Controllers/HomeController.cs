@@ -53,8 +53,25 @@ namespace FinalProject.Controllers
         {
             MailMessage mail = new MailMessage()
             {
-                From = new MailAddress("")
+                From = new MailAddress("istoreonlineshoppingplatform@gmail.com", "Administrator")
             };
+
+            mail.To.Add(new MailAddress(record.Email));
+            mail.Subject = "Inquiry From" + record.Sender + " (" + record.Subject + ")";
+
+            string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
+                "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
+                "We'll get back to you as soon as possible. Thank you!";
+            mail.Body = record.Message;
+            mail.IsBodyHtml = true;
+
+            using SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("istoreonlineshoppingplatform@gmail.com", "Entprog2021"),
+                EnableSsl = true
+            };
+            smtp.Send(mail);
+            ViewBag.Message = "Inquiry sent.";
             return View();
         }
 
