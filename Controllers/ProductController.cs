@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using FinalProject.Models;
 using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 
 namespace FinalProject.Controllers
@@ -30,7 +32,7 @@ namespace FinalProject.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Item record)
+        public IActionResult Create(Item record, IFormFile ImagePath)
         {
             var selectedCategory = _context.Items.Where(c => c.CatID == record.ProductID).SingleOrDefault();
             
@@ -43,6 +45,20 @@ namespace FinalProject.Controllers
             product.DateAdded = DateTime.Now;
             product.Categories = selectedCategory;
 
+            if (ImagePath != null)
+            {
+                if (ImagePath.Length > 0)
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(),
+                        "wwwroot/images/products", ImagePath.FileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        ImagePath.CopyTo(stream);
+                    }
+                    product.ImagePath = ImagePath.FileName;
+                }
+            }
             _context.Items.Add(product);
             _context.SaveChanges();
 
