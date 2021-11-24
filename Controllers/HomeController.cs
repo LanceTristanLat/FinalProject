@@ -73,7 +73,7 @@ namespace FinalProject.Controllers
                 EnableSsl = true
             };
             smtp.Send(mail);
-            //ViewBag.Message = "Inquiry sent.";
+            ViewBag.Message = "Inquiry sent.";
             return View();
         }
 
