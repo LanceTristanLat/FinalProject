@@ -15,6 +15,7 @@ namespace FinalProject.Data
         {
         }
         public DbSet<Item> Items { get; set; }
+        public DbSet<FinalProject.Models.Contact> Contact { get; set; }
 
     }
 }

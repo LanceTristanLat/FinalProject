@@ -23,7 +23,7 @@ namespace FinalProject.Controllers
         }
         public IActionResult Index()
         {
-            var list = _context.Items.Include(p => p.Categories).ToString();
+            var list = _context.Items.ToList();
             return View(list);
         }
 

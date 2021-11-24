@@ -31,6 +31,8 @@ namespace FinalProject.Models
         {
             throw new NotImplementedException();
         }
+
+        public string ImagePath { get; set; }
     }
     public enum Categories
     {
