@@ -62,7 +62,7 @@ namespace FinalProject.Controllers
             string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
                 "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
                 "We'll get back to you as soon as possible. Thank you!";
-            mail.Body = record.Message;
+            mail.Body = message;
             mail.Priority = MailPriority.High;
             mail.IsBodyHtml = true;
 
