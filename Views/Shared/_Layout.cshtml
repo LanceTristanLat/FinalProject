@@ -6,7 +6,8 @@
     <title>@ViewData["Title"] - FinalProject</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/custom.css"/>
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
     <header>
@@ -23,13 +24,32 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home Page</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">About us</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fas fa-info-circle"></i>About us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contactus">Contact us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Products">Products</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop 
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contactus"><i class="fas fa-laptop"></i>Macbook Accessories</a>
+                                <a class="dropdown-item" href="#">Watch Accessories</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contactus"><i class="fas fa-mobile-alt"></i>Iphone Cases</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contactus"><i class="fas fa-headphones"></i>Airpods Accessories</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Soon</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +64,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - FinalProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021  All Rights Reserved - ISTORE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
