@@ -25,13 +25,7 @@
                 @Html.DisplayNameFor(model => model.ProductPrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateAdded)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Categories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CatID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Available)
@@ -55,20 +49,13 @@
                 @Html.DisplayFor(modelItem => item.ProductPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateAdded)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Categories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CatID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Available)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
             </td>
         </tr>
