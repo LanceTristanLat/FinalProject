@@ -33,9 +33,7 @@ namespace FinalProject.Controllers
         }
         [HttpPost]
         public IActionResult Create(Item record, IFormFile ImagePath)
-        {
-            var selectedCategory = _context.Items.Where(c => c.CatID == record.ProductID).SingleOrDefault();
-            
+        {            
             var product = new Item();
             product.ProductName = record.ProductName;
             product.ProductCode = record.ProductCode;
@@ -43,7 +41,7 @@ namespace FinalProject.Controllers
             product.ProductPrice = record.ProductPrice;
             product.Available = 0;
             product.DateAdded = DateTime.Now;
-            product.Categories = selectedCategory;
+            product.Categories = record.Categories;
 
             if (ImagePath != null)
             {
@@ -86,15 +84,13 @@ namespace FinalProject.Controllers
         {
             var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
 
-            var selectedCategory = _context.Items.Where(c => c.CatID == record.CatID).SingleOrDefault();
-
             product.ProductName = record.ProductName;
             product.ProductCode = record.ProductCode;
             product.ProductDescription = record.ProductDescription;
             product.ProductPrice = record.ProductPrice;
             product.Available = 0;
             product.DateAdded = DateTime.Now;
-            product.Categories = selectedCategory;
+            product.Categories = record.Categories;
 
 
             _context.Items.Add(product);

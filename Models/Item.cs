@@ -27,11 +27,6 @@ namespace FinalProject.Models
 
         public int Available { get; set; }
 
-        public static implicit operator Categories(Item v)
-        {
-            throw new NotImplementedException();
-        }
-
         public string ImagePath { get; set; }
     }
     public enum Categories
