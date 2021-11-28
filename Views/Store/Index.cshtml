@@ -1,0 +1,34 @@
+﻿@model FinalProject.Models.StoreViewModel
+@{
+    ViewData["Title"] = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3">
+
+        </div>
+        <div class="col-xl-9">
+            <div class="row">
+                @foreach (var item in Model.ProductList)
+                {
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="~/img/products/@(item.ImagePath)" class="card-img-top" alt="@(item.ProductName)"
+                                 style="height:200px;object-fit:cover;object-position:center;">
+                            <div class="card-body">
+                                <h5 class="card-title">@(item.ProductName)</h5>
+                                <p class="card-text">@(item.Categories)</p>
+                                <p class="card-text">Php@(item.ProductPrice.ToString("N"))</p>
+                                <a href="@(Url.Action("Details","Store", new { id = item.ProductID }))"
+                                   class="btn btn-primary">See Details</a>
+                            </div>
+                        </div>
+                        <br/><br/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

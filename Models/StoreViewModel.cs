@@ -9,5 +9,8 @@ namespace FinalProject.Models
     {
         public List<Item> ProductList { get; set; }
 
+        public string ProductName { get; set; }
+        public string ProductCode { get; set; }
+        public decimal ProductPrice { get; set; }
     }
 }
