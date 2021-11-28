@@ -1,4 +1,5 @@
-﻿@model FinalProject.Models.StoreViewModel
+﻿@inject FinalProject.Data.ApplicationDbContext _context
+@model FinalProject.Models.StoreViewModel
 @{
     ViewData["Title"] = "Store";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,9 +7,34 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-xl-3">
+            <div class="card">
+                <div class="list-group">
+                    <a href="~/Store" class="list-group-item active d-flex justify-content-between align-items-center" aria-current="true">
+                        All Categories
+                        <span class="badge badge-info badge-pill">
+                            @Model.ProductList.Count
+                        </span>
+                    </a>
+                    @foreach (var item in Model.ProductList)
+                    {
+                        var totalrecords = _context.Items
+                                .Where(p => p.CatID == item.CatID)
+                                .ToList().Count;
+                        <a href="~/Store?card=@(item.CatID)" class="list-group-item d-flex justify-content-between align-items-center" aria-current="true">
+                            @item.Categories
+                            <span class="badge badge-info badge-pill">
+                                @totalrecords
+                            </span>
+                        </a>
+                    }
+
+                </div>
+            </div>
+        </div>
         <div class="col-xl-9">
             <div class="row">
-                @foreach (var item in Model.ProductList)
+                @foreach (var item in Model.ProductList.OrderByDescending(p => p.ProductID).ToList())
                 {
                     <div class="col-3">
                         <div class="card">

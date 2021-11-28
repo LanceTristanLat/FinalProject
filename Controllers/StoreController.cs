@@ -23,6 +23,12 @@ namespace FinalProject.Controllers
         public IActionResult Index()
         {
             var products = _context.Items.ToList();
+            if (Request.Query.ContainsKey("card"))
+            {
+                products = products.Where(p => p.CatID ==
+                int.Parse(Request.Query["card"].ToString()))
+                .ToList();
+            }
             var record = new StoreViewModel()
             {
                 ProductList = products
