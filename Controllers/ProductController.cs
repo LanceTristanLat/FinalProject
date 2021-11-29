@@ -9,20 +9,30 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System.IO;
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
         }
-        public IActionResult Index()
+        [Authorize]
+        public  async Task< IActionResult> Index()
         {
+            var user =await _userManager.FindByEmailAsync(User.Identity.Name);
+            if (user.Type== UserTypes.Customer)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var list = _context.Items.ToList();
             return View(list);
         }
@@ -39,7 +49,7 @@ namespace FinalProject.Controllers
             product.ProductCode = record.ProductCode;
             product.ProductDescription = record.ProductDescription;
             product.ProductPrice = record.ProductPrice;
-            product.Available = 0;
+            product.Available = record.Available;
             product.DateAdded = DateTime.Now;
             product.Categories = record.Categories;
 
@@ -80,7 +90,7 @@ namespace FinalProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int? id, Item record)
+        public IActionResult Edit(int? id, Item record, IFormFile ImagePath)
         {
             var product = _context.Items.Where(p => p.ProductID == id).SingleOrDefault();
 
@@ -88,12 +98,25 @@ namespace FinalProject.Controllers
             product.ProductCode = record.ProductCode;
             product.ProductDescription = record.ProductDescription;
             product.ProductPrice = record.ProductPrice;
-            product.Available = 0;
-            product.DateAdded = DateTime.Now;
+            product.Available = record.Available;
             product.Categories = record.Categories;
+            if (ImagePath != null)
+            {
+                if (ImagePath.Length > 0)
+                {
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(),
+                        "wwwroot/images/products", ImagePath.FileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        ImagePath.CopyTo(stream);
+                    }
+                    product.ImagePath = ImagePath.FileName;
+                }
+            }
 
 
-            _context.Items.Add(product);
+            _context.Items.Update(product);
             _context.SaveChanges();
 
             return RedirectToAction("Index");

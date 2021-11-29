@@ -61,7 +61,7 @@ namespace FinalProject.Areas.Identity.Pages.Account
             [Required]
             [StringLength(5,ErrorMessage ="Account ID must consist maximum of 5 characters.", MinimumLength = 4)]
             [Display(Name ="Account ID")]
-            public int AN { get; set; }
+            public string AN { get; set; }
             [Required]
             [Display(Name ="User Type")]
             public UserTypes Type { get; set; }

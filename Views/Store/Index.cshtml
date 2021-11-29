@@ -16,17 +16,12 @@
                             @Model.ProductList.Count
                         </span>
                     </a>
-                    @foreach (var item in Model.ProductList)
+                    @foreach (var item in Enum.GetValues(typeof(Categories)).Cast<Categories>())
                     {
-                        var totalrecords = _context.Items
-                                .Where(p => p.CatID == item.CatID)
-                                .ToList().Count;
-                        <a href="~/Store?card=@(item.CatID)" class="list-group-item d-flex justify-content-between align-items-center" aria-current="true">
-                            @item.Categories
-                            <span class="badge badge-info badge-pill">
-                                @totalrecords
-                            </span>
-                        </a>
+                        int value = (int)Enum.Parse(typeof(Categories), item.ToString());
+                <a href="~/Store?card=@value" class="list-group-item d-flex justify-content-between align-items-center" aria-current="true">
+                    @item.ToString()
+                </a>
                     }
 
                 </div>
@@ -38,7 +33,7 @@
                 {
                     <div class="col-4">
                         <div class="card">
-                            <img src="~/img/products/@(item.ImagePath)" class="card-img-top" alt="@(item.ProductName)"
+                            <img src="~/images/products/@item.ImagePath" class="card-img-top" alt="@(item.ProductName)"
                                  style="height:200px;object-fit:cover;object-position:center;">
                             <div class="card-body">
                                 <h5 class="card-title">@(item.ProductName)</h5>
