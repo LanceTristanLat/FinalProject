@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using FinalProject.Models;
+using FinalProject.Data;
+
 namespace FinalProject.Controllers
 {
     public class OrderController : Controller
