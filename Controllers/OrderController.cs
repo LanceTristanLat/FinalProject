@@ -11,9 +11,14 @@ namespace FinalProject.Controllers
 {
     public class OrderController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public OrderController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            //var list = _context.Orders.ToList();
+            var list = _context.Orders.ToList();
             return View();
         }
         public IActionResult Create()
@@ -21,5 +26,41 @@ namespace FinalProject.Controllers
             return View();
         }
        
-    }
+        [HttpPost]
+        public IActionResult Create(Order record)
+        {
+            var order = new Order();
+            order.ProductName = record.ProductName;
+            order.Quantity = record.Quantity;
+            order.Address = record.Address;
+            order.ContactNum = record.ContactNum;
+            order.ModeOfPayment = record.ModeOfPayment;
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+       
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var order = _context.Orders.Where(i => i.OrderID == id).SingleOrDefault();
+            if (order == null)
+            {
+                return RedirectToAction("Index");
+            }
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+}
 }
