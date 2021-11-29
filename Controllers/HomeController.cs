@@ -31,15 +31,8 @@ namespace FinalProject.Controllers
         {
             return View();
         }
-        [Authorize]
         public IActionResult Privacy()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user =  _context.Users.Where(u => u.Id == userId).SingleOrDefault();
-            if(user.Type == UserTypes.Admin)
-            {
-                return RedirectToAction("Index", "Home");
-            }
             return View();
         }
 

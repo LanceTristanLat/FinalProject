@@ -21,19 +21,21 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Store" asp-action="Index">Shop</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Store" asp-action="Index"><i class="fas fa-shopping-bag"></i>Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fas fa-info-circle"></i>About us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contactus">Contact us</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contactus">
+                                <i class="fas fa-phone"></i>Contact us
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Order" asp-action="Create">Place an order</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Order" asp-action="Create"><i class="fas fa-shopping-cart"></i>Place an order</a>
                         </li>
-                        
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
