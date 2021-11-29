@@ -34,7 +34,9 @@ namespace FinalProject.Models
         public DateTime DateAdded { get; set; }
 
         public ModeOfPayment ModeOfPayment { get; set; }
-        
+
+        //[Required(ErrorMessage = "Required.")]
+        //public string Email { get; set; }
     }
 
     public enum ModeOfPayment
