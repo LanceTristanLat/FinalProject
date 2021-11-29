@@ -8,9 +8,9 @@
     var categoryList = _context.Items.ToList();
 }
 
-<h1>Create</h1>
+<br />
+<h1>Add Product</h1>
 
-<h4>Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -51,6 +51,7 @@
                 <input asp-for="ImagePath" class="form-control" type="file" accept="image/*" />
                 <span asp-validation-for="ImagePath" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -58,6 +59,7 @@
     </div>
 </div>
 
+<br />
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
