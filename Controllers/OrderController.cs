@@ -61,29 +61,29 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Confirmation()
-        {
-            return View();
-        }
+        //public IActionResult Confirmation()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public IActionResult Confirmation(Order confirmation)
-        {
-            MailMessage mail = new MailMessage()
-            {
-                From = new MailAddress("istoreonlineshoppingplatform@gmail.com", "iStore")
-            };
+        //[HttpPost]
+        //public IActionResult Confirmation(Order confirmation)
+        //{
+        //    MailMessage mail = new MailMessage()
+        //    {
+        //        From = new MailAddress("istoreonlineshoppingplatform@gmail.com", "iStore")
+        //    };
 
-            mail.To.Add(new MailAddress(confirmation.Email));
-            mail.Subject = "Inquiry From" + confirmation.Sender + " (" + confirmation.Subject + ")";
+        //    mail.To.Add(new MailAddress(confirmation.Email));
+        //    mail.Subject = "Inquiry From" + confirmation.Sender + " (" + confirmation.Subject + ")";
 
-            string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
-                "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
-                "We'll get back to you as soon as possible. Thank you!";
-            mail.Body = message;
-            mail.Priority = MailPriority.High;
-            mail.IsBodyHtml = true;
-        }
+        //    string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
+        //        "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
+        //        "We'll get back to you as soon as possible. Thank you!";
+        //    mail.Body = message;
+        //    mail.Priority = MailPriority.High;
+        //    mail.IsBodyHtml = true;
+        //}
 
 
 }
