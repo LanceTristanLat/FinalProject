@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         [Key]
         public int ProductID { get; set; }
-        [Required(ErrorMessage ="Required.")]
+        [Required(ErrorMessage = "Required.")]
         public string ProductName { get; set; }
 
         public string ProductCode { get; set; }
@@ -18,15 +18,16 @@ namespace FinalProject.Models
         public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Required.")]
         public decimal ProductPrice { get; set; }
-        [Display(Name ="Date Added")]
+        [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
-        [Display(Name ="Categories")]
+        [Display(Name = "Categories")]
         public Categories Categories { get; set; }
-        
+
         public int CatID { get; set; }
 
         public int Available { get; set; }
 
+        [DataType(DataType.Upload)]
         public string ImagePath { get; set; }
     }
     public enum Categories

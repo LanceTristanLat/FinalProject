@@ -25,9 +25,8 @@ namespace FinalProject.Controllers
             var products = _context.Items.ToList();
             if (Request.Query.ContainsKey("card"))
             {
-                products = products.Where(p => p.CatID ==
-                int.Parse(Request.Query["card"].ToString()))
-                .ToList();
+                Categories cat = (Categories)int.Parse(Request.Query["card"].ToString());
+                products = products.Where(p => p.Categories == cat).ToList();
             }
             var record = new StoreViewModel()
             {
