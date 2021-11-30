@@ -3,9 +3,17 @@
 @{
     ViewData["Title"] = "ContactUs";
 }
+<style>
+    div.form-group {
+        width: 450px
+    }
+</style>
+<br /> <br />
+
 <div class="text-center">
     <br />
-    <h1>ContactUs</h1>
+    <h1>Contact Us</h1>
+    <h3>If you have any concerns or questions kindly reach us through the form below.</h3>
 </div>
     <hr />
     <div class="d-flex justify-content-center">
@@ -28,7 +36,7 @@
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-group text-center">
+                <div class="form-group">
                     <label asp-for="ContactNum" class="control-label text-center">Contact Number</label>
                     <input asp-for="ContactNum" class="form-control" />
                     <span asp-validation-for="ContactNum" class="text-danger"></span>
@@ -44,7 +52,7 @@
                     <span asp-validation-for="Message" class="text-danger"></span>
                 </div>
                 <br />
-                <div class="form-group align">
+                <div class="form-group">
                     <input type="submit" value="Send" class="btn btn-outline-dark btn-s text-center" />
                 </div>
             </form>

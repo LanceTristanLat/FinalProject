@@ -12,17 +12,17 @@ img, svg {
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    height: 200px;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 450px !important;
+    height: 450px !important;
 }
 
 .align {
-    align-self: center;
-    align-content: center;
-    text-align: center;
+    align-self: center !important;
+    align-content: center !important;
+    text-align: center !important;
 }
 
 #example1 {
@@ -32,4 +32,6 @@ img, svg {
     background-repeat: no-repeat;
     background-size: auto;
 }
+
+
 
