@@ -18,18 +18,17 @@ namespace FinalProject.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-
         public ProductController(ApplicationDbContext context)
         {
             _context = context;
             
-
         }
         public IActionResult Index()
         {
 
             var list = _context.Items.ToList();
-            return View();
+            return View(list);
+
         }
 
 

@@ -50,11 +50,11 @@ namespace FinalProject.Controllers
             };
 
             mail.To.Add(new MailAddress(record.Email));
-            mail.Subject = "Inquiry From" + record.Sender + " (" + record.Subject + ")";
+            mail.Subject = "Inquiry From " + record.Sender + " ( " + record.Subject + " )";
 
-            string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
+            string message = "Hey " + record.Sender + ","+ "<br/><br/>" + "Thanks for reaching out! " +
                 "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
-                "We'll get back to you as soon as possible. Thank you!";
+                " We'll get back to you as soon as possible. Thank you!";
             mail.Body = message;
             mail.Priority = MailPriority.High;
             mail.IsBodyHtml = true;

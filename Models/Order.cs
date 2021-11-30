@@ -33,6 +33,7 @@ namespace FinalProject.Models
         [Display(Name = "Date Ordered")]
         public DateTime DateAdded { get; set; }
 
+        [Display(Name = "Mode of Payment")]
         public ModeOfPayment ModeOfPayment { get; set; }
 
         //[Required(ErrorMessage = "Required.")]
