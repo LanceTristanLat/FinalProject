@@ -11,12 +11,15 @@ namespace FinalProject.Models
         [Key]
         public int ProductID { get; set; }
         [Required(ErrorMessage = "Required.")]
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
 
         public string ProductCode { get; set; }
         [DataType(DataType.MultilineText)]
+        [Display(Name = "Description")]
         public string ProductDescription { get; set; }
         [Required(ErrorMessage = "Required.")]
+        [Display(Name = "Price")]
         public decimal ProductPrice { get; set; }
         [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
