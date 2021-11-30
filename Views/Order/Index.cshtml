@@ -3,12 +3,15 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<br /> <br />
+<h2>You're orders have been received! Thank you for ordering!</h2>
+<br /> <br/>
 <h1>Orders</h1>
 
 <p>
     <a asp-action="Create">Add Order</a>
 </p>
+<br/><br/>
 <table class="table">
     <thead>
         <tr>
@@ -37,39 +40,34 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactNum)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAdded)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModeOfPayment)
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.OrderID">Cancel Order</a>
-                </td>
-            </tr>
-
-        }
-
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeOfPayment)
+            </td>
+            <td>
+              
+                <a asp-action="Delete" asp-route-id="@item.OrderID">Cancel Order</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>
-<div>
-    <a asp-action="Index">View Orders</a>
-</div>

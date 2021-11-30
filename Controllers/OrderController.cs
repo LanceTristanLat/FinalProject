@@ -20,7 +20,7 @@ namespace FinalProject.Controllers
         public IActionResult Index()
         {
             var list = _context.Orders.ToList();
-            return View();
+            return View(list);
         }
         public IActionResult Create()
         {
@@ -32,9 +32,11 @@ namespace FinalProject.Controllers
         {
             var order = new Order();
             order.ProductName = record.ProductName;
+            order.Price = record.Price;
             order.Quantity = record.Quantity;
             order.Address = record.Address;
             order.ContactNum = record.ContactNum;
+            order.DateAdded = DateTime.Now;
             order.ModeOfPayment = record.ModeOfPayment;
 
             _context.Orders.Add(order);
@@ -61,30 +63,6 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Confirmation()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult Confirmation(Order confirmation)
-        //{
-        //    MailMessage mail = new MailMessage()
-        //    {
-        //        From = new MailAddress("istoreonlineshoppingplatform@gmail.com", "iStore")
-        //    };
-
-        //    mail.To.Add(new MailAddress(confirmation.Email));
-        //    mail.Subject = "Inquiry From" + confirmation.Sender + " (" + confirmation.Subject + ")";
-
-        //    string message = "Hey! " + record.Sender + "<br/>" + "Thanks for reaching out! " +
-        //        "We have received your concern regarding " + record.Subject + ". Kindly wait for 12-24hrs for our response." +
-        //        "We'll get back to you as soon as possible. Thank you!";
-        //    mail.Body = message;
-        //    mail.Priority = MailPriority.High;
-        //    mail.IsBodyHtml = true;
-        //}
-
-
+        
 }
 }
