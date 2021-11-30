@@ -1,4 +1,14 @@
 ﻿
-.navbar-dark .navbar-nav a{
+.navbar-dark .navbar-nav a {
     color: #00ffff !important;
 }
+.fa, .fas {
+    height: max-content;
+    width: stretch;
+}
+
+img, svg {
+    height: 200px;
+    width: 200px;
+}
+
