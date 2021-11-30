@@ -41,7 +41,7 @@
                                 <p class="card-text">@(item.Categories)</p>
                                 <p class="card-text">Php@(item.ProductPrice.ToString("N"))</p>
                                 <a href="@(Url.Action("Create","Order", new { id = item.ProductID }))"
-                                   class="btn btn-outline-dark">Buy Now</a>
+                                   class="btn btn-outline-dark btn-sm" >Buy Now</a>
                             </div>
                         </div>
                         <br/><br/>
