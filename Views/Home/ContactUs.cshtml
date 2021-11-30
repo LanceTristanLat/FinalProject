@@ -3,56 +3,56 @@
 @{
     ViewData["Title"] = "ContactUs";
 }
-
-<br />
-<h1>ContactUs</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="ContactUs">
-            @if (ViewBag.Message != null)
-            {
-                <div class="alert alert-success">
-                    @ViewBag.Message
-                </div>
-            }
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Sender" class="control-label"></label>
-                <input asp-for="Sender" class="form-control" />
-                <span asp-validation-for="Sender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContactNum" class="control-label">Contact Number</label>
-                <input asp-for="ContactNum" class="form-control" />
-                <span asp-validation-for="ContactNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Subject" class="control-label"></label>
-                <input asp-for="Subject" class="form-control" />
-                <span asp-validation-for="Subject" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message" class="control-label"></label>
-                <textarea asp-for="Message" class="form-control"></textarea>
-                <span asp-validation-for="Message" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Send" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div class="text-center">
+    <br />
+    <h1>ContactUs</h1>
 </div>
+    <hr />
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4 align d-flex justify-content-center">
+            <form asp-action="ContactUs">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-success">
+                        @ViewBag.Message
+                    </div>
+                }
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Sender" class="control-label"></label>
+                    <input asp-for="Sender" class="form-control" />
+                    <span asp-validation-for="Sender" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label align-content-center"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <label asp-for="ContactNum" class="control-label text-center">Contact Number</label>
+                    <input asp-for="ContactNum" class="form-control" />
+                    <span asp-validation-for="ContactNum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subject" class="control-label"></label>
+                    <input asp-for="Subject" class="form-control" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="control-label"></label>
+                    <textarea asp-for="Message" class="form-control"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group align">
+                    <input type="submit" value="Send" class="btn btn-outline-dark btn-s text-center" />
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

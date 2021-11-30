@@ -60,11 +60,13 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background-color: white;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: white;
 }
-.footer {
+
+footer 
+     {
   position: absolute;
   bottom: 0;
   width: 100%;
