@@ -17,25 +17,21 @@ namespace FinalProject.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+
+        public ProductController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
+            
 
         }
-        [Authorize]
-        public  async Task< IActionResult> Index()
+        public IActionResult Index()
         {
-            var user =await _userManager.FindByEmailAsync(User.Identity.Name);
-            if (user.Type== UserTypes.Customer)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+
             var list = _context.Items.ToList();
-            return View(list);
+            return View();
         }
+
 
         public IActionResult Create()
         {
