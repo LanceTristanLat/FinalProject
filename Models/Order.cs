@@ -27,7 +27,8 @@ namespace FinalProject.Models
 
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Required.")] 
+        [Required(ErrorMessage = "Required.")]
+        [Display(Name = "Contact Number")]
         public int ContactNum { get; set; }
 
         [Display(Name = "Date Ordered")]
@@ -36,8 +37,6 @@ namespace FinalProject.Models
         [Display(Name = "Mode of Payment")]
         public ModeOfPayment ModeOfPayment { get; set; }
 
-        //[Required(ErrorMessage = "Required.")]
-        //public string Email { get; set; }
     }
 
     public enum ModeOfPayment

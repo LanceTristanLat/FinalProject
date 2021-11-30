@@ -32,9 +32,11 @@ namespace FinalProject.Controllers
         {
             var order = new Order();
             order.ProductName = record.ProductName;
+            order.Price = record.Price;
             order.Quantity = record.Quantity;
             order.Address = record.Address;
             order.ContactNum = record.ContactNum;
+            order.DateAdded = DateTime.Now;
             order.ModeOfPayment = record.ModeOfPayment;
 
             _context.Orders.Add(order);
