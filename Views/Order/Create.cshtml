@@ -1,4 +1,5 @@
 ﻿@model FinalProject.Models.Order
+@inject FinalProject.Data.ApplicationDbContext _context;
 
 @{
     ViewData["Title"] = "Create";
@@ -21,7 +22,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
             <div class="form-group">
                 <label asp-for="ProductName" class="control-label"></label>
-                <input asp-for="ProductName" class="form-control" />
+                <select asp-for="ProductName" class="form-control" id="order">
+                    <option value="">Select one. . .</option>
+                    <option value="Apple Watch band in White">Apple Watch band in White</option>
+                    <option value="Apple Watch band in Black">Apple Watch band in Black</option>
+                    <option value="Apple Watch band in Rose gold">Apple Watch band in Rose gold</option>
+                    <option value="Iphones Adapter">Iphones Adapter</option>
+                    <option value="Macbook Charger">Macbook Charger</option>
+                    <option value="Iphones Charger Cable">Iphones Charger Cable</option>
+                    <option value="Lightning Digital AV Adapter">Lightning Digital AV Adapter</option>
+                    <option value="Wireless Charging Pads in Black">Wireless Charging Pads in Black</option>
+                    <option value="Wireless Charging Pads in White">Wireless Charging Pads in White</option>
+                    <option value="Ipad Case in Yello">Ipad Case in Yello</option>
+                    <option value="Ipad Case in Black">Ipad Case in Black</option>
+                    <option value="Ipad Case in Blush Pink">Ipad Case in Blush Pink</option>
+                    <option value="Clear Phone Cases">Clear Phone Cases	</option>
+                    <option value="Iphone Case in Leather">Iphone Case in Leather</option>
+                    <option value="Iphone Case in Black">Iphone Case in Black</option>
+                    <option value="Ipad Case in Blush Pink">Ipad Case in Blush Pink</option>
+
+                </select>
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -62,7 +62,9 @@ namespace FinalProject.Controllers
 
             return RedirectToAction("Index");
         }
-
-        
-}
+        public IActionResult Track()
+        {
+            return View();
+        }
+    }
 }

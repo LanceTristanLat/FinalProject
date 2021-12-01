@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <br /> <br />
-<h2>You're orders have been recorded! Thank you for ordering!</h2>
+<h2>You're orders have been recorded! </h2>
 <br /> <br/>
 <h1>Orders</h1>
 
@@ -64,8 +64,8 @@
                 @Html.DisplayFor(modelItem => item.ModeOfPayment)
             </td>
             <td>
-              
-                <a asp-action="Delete" asp-route-id="@item.OrderID">Cancel Order</a>
+                <a asp-action="Track" asp-route-id="@item.OrderID">Track Order</a> | 
+                <a asp-action="Delete" asp-route-id="@item.OrderID"  onclick='return confirm("Are you sure?");'>Cancel Order</a>
             </td>
         </tr>
 }

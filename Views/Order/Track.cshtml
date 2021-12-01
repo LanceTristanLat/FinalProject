@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+
+<div>
+    <br /> <br />
+    <h2> Order Status</h2>
+    <div>
+        <a class="nav-link text-dark" asp-action="Index">Back to Order List</a> 
+    </div>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Index">Go to Store</a>
+
+    </div>
+    <br /> <br /> <br /> 
+    <center>
+        <h4>
+            Thank your for ordering! Kindly wait for 2-3 business days for your order to be processed and delivered.
+            For more concerns and question kindly send a message by clicking the icon below.
+        </h4>
+        <br />
+        <br /> <br /> <br />
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contactus">
+            <i class="fas fa-phone">.</i>
+        </a>
+    </center>
+</div>
